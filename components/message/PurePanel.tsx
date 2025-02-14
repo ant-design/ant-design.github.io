@@ -11,10 +11,10 @@ import type { NoticeProps } from 'rc-notification/lib/Notice';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { NoticeType, SemanticName } from './interface';
+import type { ArgsProps, NoticeType, SemanticName } from './interface';
 import useStyle from './style';
 
-export const TypeIcon = {
+export const defaultIcons = {
   info: <InfoCircleFilled />,
   success: <CheckCircleFilled />,
   error: <CloseCircleFilled />,
@@ -26,6 +26,7 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
+  icons?: ArgsProps['icons'];
   children: React.ReactNode;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
@@ -35,11 +36,12 @@ export const PureContent: React.FC<PureContentProps> = ({
   prefixCls,
   type,
   icon,
+  icons,
   children,
   classNames: pureContentClassNames,
   styles,
 }) => {
-  const iconElement = icon || (type && TypeIcon[type]);
+  const iconElement = icon || (type && icons?.[type]);
   const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
     className: classNames(currentProps.className, pureContentClassNames?.icon),
     style: { ...currentProps.style, ...styles?.icon },
@@ -72,6 +74,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     icon,
     content,
     classNames: messageClassNames,
+    icons,
     styles,
     ...restProps
   } = props;
@@ -80,6 +83,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
+    icons: contextIcons,
     styles: contextStyles,
   } = useComponentConfig('message');
 
@@ -113,6 +117,11 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           classNames={{
             icon: classNames(messageClassNames?.icon, contextClassNames.icon),
             content: classNames(messageClassNames?.content, contextClassNames.content),
+          }}
+          icons={{
+            ...defaultIcons,
+            ...contextIcons,
+            ...icons,
           }}
           styles={{
             icon: { ...contextStyles.icon, ...styles?.icon },

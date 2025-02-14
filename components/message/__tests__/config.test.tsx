@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { render, screen } from '@testing-library/react';
 
 import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
@@ -340,5 +341,45 @@ describe('message.config', () => {
 
     expect(noticeWithoutLeaving).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
+  });
+
+  it('should support custom icons via global config', () => {
+    const MyApp = () => {
+      const { message } = App.useApp();
+      useEffect(() => {
+        message.success('success');
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider message={{ icons: { success: <span>foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeVisible();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    const MyApp = () => {
+      const { message } = App.useApp();
+      useEffect(() => {
+        message.open({
+          type: 'success',
+          content: 'success',
+          icons: { success: <span>bamboo</span> },
+        });
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider message={{ icons: { success: <span>foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeVisible();
   });
 });

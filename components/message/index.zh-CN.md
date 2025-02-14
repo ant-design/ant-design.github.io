@@ -66,12 +66,13 @@ demo:
 
 `config` 对象属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | className | 自定义 CSS class | string | - |
 | content | 提示内容 | ReactNode | - |
 | duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
 | icon | 自定义图标 | ReactNode | - |
+| icons | 内置图标 | { info?: ReactNode; success?: ReactNode; warning?: ReactNode; error?: ReactNode; loading?: ReactNode; } | - | 6.0.0 |
 | key | 当前提示的唯一标志 | string \| number | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | onClick | 点击 message 时触发的回调函数 | function | - |
@@ -110,6 +111,7 @@ message.config({
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | string \| number | 8 |  |
+| icons | 内置图标 | { info?: ReactNode; success?: ReactNode; warning?: ReactNode; error?: ReactNode; loading?: ReactNode; } | - | 6.0.0 |
 
 ## Semantic DOM
 
