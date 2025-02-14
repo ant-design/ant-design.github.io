@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -11,7 +10,6 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
-import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
@@ -51,10 +49,18 @@ export interface AlertProps {
   prefixCls?: string;
   className?: string;
   classNames?: Partial<Record<SemanticName, string>>;
+  icons?: {
+    success?: React.ReactNode;
+    info?: React.ReactNode;
+    warning?: React.ReactNode;
+    error?: React.ReactNode;
+    close?: React.ReactNode;
+  };
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  /** @deprecated Please use `icons.close` instead */
   closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -64,16 +70,18 @@ export interface AlertProps {
   id?: string;
 }
 
-const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
+const defaultIcons = {
+  success: <CheckCircleFilled />,
+  info: <InfoCircleFilled />,
+  error: <CloseCircleFilled />,
+  warning: <ExclamationCircleFilled />,
+  close: <CloseOutlined />,
 };
 
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
+  icons: AlertProps['icons'];
   prefixCls: AlertProps['prefixCls'];
   description: AlertProps['description'];
   className?: string;
@@ -81,25 +89,16 @@ interface IconNodeProps {
 }
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { icon, prefixCls, type, className, style } = props;
-  const iconType = iconMapFilled[type!] || null;
-  if (icon) {
-    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(
-        (
-          icon as ReactElement<{
-            className?: string;
-          }>
-        ).props.className,
-        className,
-      ),
-      style,
-    })) as ReactElement;
+  const { icon, prefixCls, type, className, style, icons } = props;
+  const mergedIcon = icon || icons?.[type!] || defaultIcons[type!];
+  if (mergedIcon) {
+    return (
+      <span className={classNames(`${prefixCls}-icon`, className)} style={style}>
+        {mergedIcon}
+      </span>
+    );
   }
-  return React.createElement(iconType, {
-    className,
-    style,
-  });
+  return null;
 };
 
 type CloseIconProps = {
@@ -113,7 +112,7 @@ type CloseIconProps = {
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
   const { isClosable, prefixCls, closeIcon, handleClose, ariaProps } = props;
   const mergedCloseIcon =
-    closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
+    closeIcon === true || closeIcon === undefined ? defaultIcons.close : closeIcon;
   return isClosable ? (
     <button
       type="button"
@@ -148,6 +147,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     action,
     id,
     styles,
+    icons,
     classNames: alertClassNames,
     ...otherProps
   } = props;
@@ -180,6 +180,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
+    icons: contextIcons,
     styles: contextStyles,
   } = useComponentConfig('alert');
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
@@ -246,8 +247,14 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     if (closeText) {
       return closeText;
     }
+    if (icons?.close !== undefined) {
+      return icons.close;
+    }
     if (closeIcon !== undefined) {
       return closeIcon;
+    }
+    if (contextIcons?.close !== undefined) {
+      return contextIcons.close;
     }
     if (typeof contextClosable === 'object' && contextClosable.closeIcon) {
       return contextClosable.closeIcon;
@@ -302,6 +309,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
               style={{ ...contextStyles.icon, ...styles?.icon }}
               description={description}
               icon={props.icon}
+              icons={{ ...contextIcons, ...icons }}
               prefixCls={prefixCls}
               type={type}
             />

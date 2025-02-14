@@ -9,6 +9,7 @@ import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
 import type { CardMetaProps } from '../card/Meta';
 import type { CascaderProps } from '../cascader';
+import type { CheckboxProps } from '../checkbox';
 import type { CollapseProps } from '../collapse';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
@@ -29,6 +30,7 @@ import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
+import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
 import type { SegmentedProps } from '../segmented';
 import type { SelectProps } from '../select';
@@ -47,8 +49,6 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { CheckboxProps } from '../checkbox';
-import type { RadioProps } from '../radio';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -164,7 +164,7 @@ export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'icons' | 'styles'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 

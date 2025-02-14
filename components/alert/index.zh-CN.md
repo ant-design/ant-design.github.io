@@ -45,6 +45,7 @@ group:
 | closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
+| icons | 内置图标 | { info?: ReactNode; success?: ReactNode; warning?: ReactNode; error?: ReactNode; close?: ReactNode; } | `{ info: <InfoCircleFilled/>, success: <CheckCircleFilled/>, warning: <ExclamationCircleFilled/>, error: <CloseCircleFilled/>, close: <CloseOutlined/> }` | 6.0.0 |
 | ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  |
 | title | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
