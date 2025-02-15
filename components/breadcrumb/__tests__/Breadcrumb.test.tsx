@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -323,5 +325,28 @@ describe('Breadcrumb', () => {
         }}
       />,
     ).toBeTruthy();
+  });
+
+  it('should support custom icons via global config', () => {
+    render(
+      <ConfigProvider breadcrumb={{ icons: { dropdown: <span>foobar</span> } }}>
+        <Breadcrumb
+          items={[{ title: 'menu', menu: { items: [{ label: 'xxxx' }, { label: 'xxxx' }] } }]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    render(
+      <ConfigProvider breadcrumb={{ icons: { dropdown: <span>foobar</span> } }}>
+        <Breadcrumb
+          icons={{ dropdown: 'bamboo' }}
+          items={[{ title: 'menu', menu: { items: [{ label: 'xxxx' }, { label: 'xxxx' }] } }]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
   });
 });

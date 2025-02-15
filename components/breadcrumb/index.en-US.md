@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | params | Routing parameters | object | - |  |
 | items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
+| icons | Built-in icons | { dropdown?: ReactNode; } | `{ dropdown: <DownOutlined/> }` | 6.0.0 |
 
 ### ItemType
 
@@ -128,7 +129,7 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );
 }
 

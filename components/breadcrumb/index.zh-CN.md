@@ -56,6 +56,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | params | 路由的参数 | object | - |  |
 | items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
+| icons | 内置图标 | { dropdown?: ReactNode; } | `{ dropdown: <DownOutlined/> }` | 6.0.0 |
 
 ### ItemType
 
@@ -129,7 +130,7 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );
 }
 

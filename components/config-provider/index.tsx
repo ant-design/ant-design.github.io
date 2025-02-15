@@ -17,6 +17,7 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   AlertConfig,
   BadgeConfig,
+  BreadcrumbConfig,
   ButtonConfig,
   CardConfig,
   CardMetaConfig,
@@ -214,7 +215,7 @@ export interface ConfigProviderProps {
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
-  breadcrumb?: ComponentStyleConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: CheckboxConfig;
