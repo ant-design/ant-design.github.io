@@ -49,6 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | classNames | Config Modal build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| icons | Built-in icons | { info?: ReactNode; success?: ReactNode; warning?: ReactNode; error?: ReactNode; close?: ReactNode; } | `{ info: <InfoCircleFilled/>, success: <CheckCircleFilled/>, warning: <ExclamationCircleFilled/>, error: <CloseCircleFilled/>, close: <CloseOutlined/> }` | 6.0.0 |
 | styles | Config Modal build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |

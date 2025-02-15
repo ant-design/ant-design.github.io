@@ -82,7 +82,7 @@ exports[`Modal render correctly 1`] = `
                 >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-modal-close-icon"
+                    class="anticon anticon-close"
                     role="img"
                   >
                     <svg
@@ -176,7 +176,7 @@ exports[`Modal render without footer 1`] = `
                 >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-modal-close-icon"
+                    class="anticon anticon-close"
                     role="img"
                   >
                     <svg

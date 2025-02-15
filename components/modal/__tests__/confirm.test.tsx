@@ -1,13 +1,16 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import RcCSSMotion from '@rc-component/motion';
 import { genCSSMotion as genRcCSSMotion } from '@rc-component/motion/lib/CSSMotion';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { resetWarned } from '@rc-component/util/lib/warning';
+import { render, screen } from '@testing-library/react';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import App from '../../app';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -978,5 +981,45 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
+
+  it('should support custom icons via global config', () => {
+    const MyApp = () => {
+      const { modal } = App.useApp();
+      useEffect(() => {
+        modal.success({ title: 'success', content: 'success' });
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider modal={{ icons: { success: <span>foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    const MyApp = () => {
+      const { modal } = App.useApp();
+      useEffect(() => {
+        modal.success({
+          title: 'success',
+          content: 'success',
+          icons: { success: <span>bamboo</span> },
+        });
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider modal={{ icons: { success: <span>foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
   });
 });

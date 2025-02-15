@@ -1,10 +1,12 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { CloseOutlined } from '@ant-design/icons';
 import { Panel } from '@rc-component/dialog';
 import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
+import classNames from 'classnames';
 
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps } from './interface';
@@ -31,6 +33,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
+  const { icons } = useComponentConfig('modal');
 
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
@@ -78,7 +81,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         rootCls,
       )}
       {...restProps}
-      closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+      closeIcon={renderCloseIcon(prefixCls, closeIcon || icons?.close || <CloseOutlined />)}
       closable={closable}
       {...additionalProps}
     />,

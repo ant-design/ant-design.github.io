@@ -81,6 +81,13 @@ export interface ModalProps extends ModalCommonProps {
    */
   loading?: boolean;
   classNames?: Partial<Record<SemanticName, string>>;
+  icons?: {
+    success?: React.ReactNode;
+    info?: React.ReactNode;
+    warning?: React.ReactNode;
+    error?: React.ReactNode;
+    close?: React.ReactNode;
+  };
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
@@ -126,6 +133,13 @@ export interface ModalFuncProps extends ModalCommonProps {
   footer?: ModalProps['footer'];
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  icons?: {
+    success?: React.ReactNode;
+    info?: React.ReactNode;
+    warning?: React.ReactNode;
+    error?: React.ReactNode;
+    close?: React.ReactNode;
+  };
 }
 
 export interface ModalLocale {
