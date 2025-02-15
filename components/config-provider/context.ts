@@ -175,7 +175,7 @@ export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
+  Pick<ButtonProps, 'classNames' | 'icons' | 'styles' | 'autoInsertSpace'>;
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
