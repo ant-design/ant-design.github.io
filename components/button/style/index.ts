@@ -205,6 +205,10 @@ const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (toke
   [`&:disabled, &${token.componentCls}-disabled`]: {
     ...genDisabledStyle(token),
   },
+
+  [`${token.componentCls}-default&:disabled`]: {
+    background: token.colorBgDefaultDisabled,
+  },
 });
 
 const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
