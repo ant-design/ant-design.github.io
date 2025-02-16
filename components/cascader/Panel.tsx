@@ -5,6 +5,7 @@ import { Panel } from 'rc-cascader';
 import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps, DefaultOptionType } from '.';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -14,7 +15,7 @@ import useColumnIcons from './hooks/useColumnIcons';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
 
-export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
+export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName' | 'icons';
 
 export type CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -42,7 +43,10 @@ function CascaderPanel<
     direction,
     expandIcon,
     disabled: customDisabled,
+    icons,
   } = props;
+
+  const { icons: contextIcons } = useComponentConfig('cascader');
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -59,7 +63,10 @@ function CascaderPanel<
   const isRtl = mergedDirection === 'rtl';
 
   // ===================== Icon ======================
-  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
+  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon, {
+    ...contextIcons,
+    ...icons,
+  });
 
   // ===================== Empty =====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (

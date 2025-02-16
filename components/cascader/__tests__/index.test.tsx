@@ -8,7 +8,7 @@ import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -717,5 +717,27 @@ describe('Cascader', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('should support custom icons via global config', () => {
+    render(
+      <ConfigProvider cascader={{ icons: { expand: <span>foobar</span> } }}>
+        <Cascader open options={[{ value: 1, label: '1', children: [{ value: 2, label: '2' }] }]} />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    render(
+      <ConfigProvider cascader={{ icons: { expand: <span>foobar</span> } }}>
+        <Cascader
+          icons={{ expand: 'bamboo' }}
+          open
+          options={[{ value: 1, label: '1', children: [{ value: 2, label: '2' }] }]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
   });
 });

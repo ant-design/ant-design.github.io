@@ -239,7 +239,7 @@ export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' |
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
-export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'icons' | 'variant'>;
 
 export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
 
