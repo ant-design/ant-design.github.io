@@ -533,4 +533,26 @@ describe('Button', () => {
     expect(button).toBeDisabled();
     expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.1)');
   });
+
+  it('should support customizing the background color of dashed type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              colorBgDashedDisabled: 'rgba(0, 0, 0, 0.2)',
+            },
+          },
+        }}
+      >
+        <Button type="dashed" disabled>
+          button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-dashed')!;
+    expect(button).toBeDisabled();
+    expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.2)');
+  });
 });
