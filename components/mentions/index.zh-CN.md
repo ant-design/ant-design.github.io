@@ -101,6 +101,10 @@ return (
 | className | css 类名       | string              | -      |
 | style     | 选项样式       | React.CSSProperties | -      |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Mentions"></ComponentTokenTable>

@@ -100,6 +100,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | className | className | string | - |
 | style | The style of the option | React.CSSProperties | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Mentions"></ComponentTokenTable>

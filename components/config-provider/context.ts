@@ -269,7 +269,8 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
-export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
+export type MentionsConfig = ComponentStyleConfig &
+  Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
