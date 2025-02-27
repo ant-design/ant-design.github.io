@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { merge } from 'rc-util/lib/utils/set';
 
 import type { Locale } from '.';
 import type { LocaleContextProps } from './context';
@@ -16,10 +17,8 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
     const localeFromContext = fullLocale?.[componentName] ?? {};
-    return {
-      ...(typeof locale === 'function' ? locale() : locale),
-      ...(localeFromContext || {}),
-    };
+    // Form 和 DatePicker 的 locale 通常不止一层，需要做一次 merge
+    return merge(typeof locale === 'function' ? locale() : locale, localeFromContext);
   }, [componentName, defaultLocale, fullLocale]);
 
   const getLocaleCode = React.useMemo<string>(() => {
