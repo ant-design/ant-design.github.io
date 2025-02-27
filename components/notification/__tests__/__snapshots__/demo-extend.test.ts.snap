@@ -448,6 +448,19 @@ Array [
 
 exports[`renders components/notification/demo/placement.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/progress-color.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-qbrqjq"
+  type="button"
+>
+  <span>
+    Show custom progress color
+  </span>
+</button>
+`;
+
+exports[`renders components/notification/demo/progress-color.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-notification-notice-pure-panel"
