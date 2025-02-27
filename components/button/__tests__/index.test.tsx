@@ -6,7 +6,7 @@ import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
@@ -512,5 +512,23 @@ describe('Button', () => {
     );
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('should support custom icons via global config', () => {
+    render(
+      <ConfigProvider button={{ icons: { loading: <span>foobar</span> } }}>
+        <Button loading />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    render(
+      <ConfigProvider button={{ icons: { loading: <span>foobar</span> } }}>
+        <Button icons={{ loading: 'bamboo' }} loading />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
   });
 });
