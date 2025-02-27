@@ -115,6 +115,34 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      list: 'custom-list',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      list: { color: 'green' },
+      item: { color: 'blue' },
+    };
+    const { container } = render(
+      <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    const root = container.querySelector('.ant-upload-wrapper');
+    const list = container.querySelector('.ant-upload-list');
+    const item = container.querySelector('.ant-upload-list-item');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(list).toHaveClass(customClassNames.list);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(list).toHaveStyle(customStyles.list);
+    expect(item).toHaveStyle(customStyles.item);
+  });
+
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
     const list = [

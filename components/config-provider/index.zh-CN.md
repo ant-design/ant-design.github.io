@@ -173,7 +173,7 @@ const {
 | transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload-cn#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
