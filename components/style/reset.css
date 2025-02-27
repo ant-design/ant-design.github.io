@@ -247,7 +247,3 @@ template {
 [hidden] {
   display: none !important;
 }
-mark {
-  padding: 0.2em;
-  background-color: #feffe6;
-}
