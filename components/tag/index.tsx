@@ -15,7 +15,8 @@ import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
-
+import FunVariant, { TagVariant } from './style/variant';
+import Compact from './Compact';
 export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -32,6 +33,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   bordered?: boolean;
+  variant?: TagVariant;
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) => {
@@ -46,6 +48,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     onClose,
     bordered = true,
     visible: deprecatedVisible,
+    variant,
     ...props
   } = tagProps;
   const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
@@ -69,9 +72,10 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const isPreset = isPresetColor(color);
   const isStatus = isPresetStatusColor(color);
   const isInternalColor = isPreset || isStatus;
-
+  const isVariant = FunVariant(variant as TagVariant);
   const tagStyle: React.CSSProperties = {
-    backgroundColor: color && !isInternalColor ? color : undefined,
+    color: isVariant ? (!isInternalColor ? '#fff' : undefined) : undefined,
+    backgroundColor: isVariant || (color && !isInternalColor ? color : undefined),
     ...tagContext?.style,
     ...style,
   };
@@ -153,6 +157,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
 
 export type TagType = typeof InternalTag & {
   CheckableTag: typeof CheckableTag;
+  Compact: typeof Compact;
 };
 
 const Tag = InternalTag as TagType;
@@ -160,7 +165,7 @@ const Tag = InternalTag as TagType;
 if (process.env.NODE_ENV !== 'production') {
   Tag.displayName = 'Tag';
 }
-
+Tag.Compact = Compact;
 Tag.CheckableTag = CheckableTag;
 
 export default Tag;
