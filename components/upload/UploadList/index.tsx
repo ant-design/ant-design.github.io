@@ -50,7 +50,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     appendActionVisible = true,
     itemRender,
     disabled,
+    classNames: uploadListClassNames,
+    styles,
   } = props;
+
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
   const isPictureCardOrCirle = ['picture-card', 'picture-circle'].includes(listType);
@@ -168,7 +171,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const listClassNames = classNames(`${prefixCls}-list`, `${prefixCls}-list-${listType}`);
+  const listClassNames = classNames(
+    `${prefixCls}-list`,
+    `${prefixCls}-list-${listType}`,
+    uploadListClassNames?.list,
+  );
 
   const listItemMotion = React.useMemo(
     () => omit(initCollapseMotion(rootPrefixCls), ['onAppearEnd', 'onEnterEnd', 'onLeaveEnd']),
@@ -183,7 +190,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   };
 
   return (
-    <div className={listClassNames}>
+    <div className={listClassNames} style={styles?.list}>
       <CSSMotionList {...motionConfig} component={false}>
         {({ key, file, className: motionClassName, style: motionStyle }) => (
           <ListItem
@@ -192,6 +199,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             prefixCls={prefixCls}
             className={motionClassName}
             style={motionStyle}
+            classNames={uploadListClassNames}
+            styles={styles}
             file={file}
             items={items}
             progress={progress}

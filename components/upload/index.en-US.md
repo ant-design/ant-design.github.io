@@ -123,6 +123,10 @@ When uploading state change, it returns:
 
 3. `event` response from the server, including uploading progress, supported by advanced browsers.
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Upload"></ComponentTokenTable>

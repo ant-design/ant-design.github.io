@@ -10,6 +10,7 @@ import Progress from '../../progress';
 import Tooltip from '../../tooltip';
 import type {
   ItemRender,
+  SemanticName,
   UploadFile,
   UploadListProgressProps,
   UploadListType,
@@ -20,6 +21,8 @@ export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];
@@ -53,6 +56,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       prefixCls,
       className,
       style,
+      classNames: itemClassNames,
+      styles,
       locale,
       listType,
       file,
@@ -134,6 +139,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const listItemClassName = classNames(
       `${prefixCls}-list-item`,
       `${prefixCls}-list-item-${mergedStatus}`,
+      itemClassNames?.item,
     );
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
@@ -241,7 +247,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={listItemClassName}>
+      <div className={listItemClassName} style={styles?.item}>
         {icon}
         {fileName}
         {downloadOrDelete}

@@ -171,7 +171,7 @@ const {
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | Set Upload common props | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
