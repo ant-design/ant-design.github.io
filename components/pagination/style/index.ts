@@ -140,6 +140,8 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       [`${componentCls}-item`]: {
         cursor: 'not-allowed',
 
+        backgroundColor: 'transparent',
+
         '&:hover, &:active': {
           backgroundColor: 'transparent',
         },
@@ -221,18 +223,6 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       margin: 0,
       lineHeight: unit(token.calc(token.itemSizeSM).sub(2).equal()),
     },
-
-    [`&${componentCls}-mini:not(${componentCls}-disabled) ${componentCls}-item:not(${componentCls}-item-active)`]:
-      {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        '&:hover': {
-          backgroundColor: token.colorBgTextHover,
-        },
-        '&:active': {
-          backgroundColor: token.colorBgTextActive,
-        },
-      },
 
     [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
       minWidth: token.itemSizeSM,
