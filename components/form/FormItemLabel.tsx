@@ -128,6 +128,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   // Required Mark
   const isOptionalMark = requiredMark === 'optional';
   const isRenderMark = typeof requiredMark === 'function';
+  const hideRequiredMark = requiredMark === false;
 
   if (isRenderMark) {
     labelChildren = requiredMark(labelChildren, { required: !!required });
@@ -144,6 +145,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
+    [`${prefixCls}-item-required-mark-hidden`]: hideRequiredMark,
     [`${prefixCls}-item-required-mark-optional`]: isOptionalMark || isRenderMark,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });

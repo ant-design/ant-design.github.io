@@ -870,7 +870,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="name"
                         title="Name"
                       >
@@ -914,7 +914,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="url"
                         title="Url"
                       >
@@ -982,7 +982,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="owner"
                         title="Owner"
                       >
@@ -1163,7 +1163,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="type"
                         title="Type"
                       >
@@ -1349,7 +1349,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="approver"
                         title="Approver"
                       >
@@ -1530,7 +1530,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="dateTime"
                         title="DateTime"
                       >
@@ -2771,7 +2771,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="description"
                         title="Description"
                       >
