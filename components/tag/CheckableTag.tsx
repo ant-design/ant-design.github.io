@@ -16,10 +16,10 @@ export interface CheckableTagProps {
   checked: boolean;
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
-  onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
+const CheckableTag = React.forwardRef<HTMLButtonElement, CheckableTagProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     style,
@@ -31,7 +31,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
-  const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onChange?.(!checked);
     onClick?.(e);
   };
@@ -53,7 +53,8 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
   );
 
   return wrapCSSVar(
-    <span
+    <button
+      type="button"
       {...restProps}
       ref={ref}
       style={{ ...style, ...tag?.style }}

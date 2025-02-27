@@ -177,7 +177,7 @@ describe('Tag', () => {
     });
 
     it('should support ref', () => {
-      const ref = React.createRef<HTMLSpanElement>();
+      const ref = React.createRef<HTMLButtonElement>();
       const { container } = render(
         <Tag.CheckableTag checked={false} ref={ref}>
           Tag Text
@@ -185,7 +185,7 @@ describe('Tag', () => {
       );
       const refElement = ref.current;
       const queryTarget = container.querySelector('.ant-tag');
-      expect(refElement instanceof HTMLSpanElement).toBe(true);
+      expect(refElement instanceof HTMLButtonElement).toBe(true);
       expect(refElement?.textContent).toBe('Tag Text');
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
@@ -201,6 +201,13 @@ describe('Tag', () => {
     const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
     expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
       'CloseBtn',
+    );
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+  });
+  it('should display textContent and aria-label correctly ', () => {
+    const { container } = render(<Tag closeIcon="X" />);
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+      'Close',
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
