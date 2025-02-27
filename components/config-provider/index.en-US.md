@@ -138,6 +138,7 @@ const {
 | textArea | Set TextArea common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | Set List common props | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list#listitem), styles: [ListItemProps\["styles"\]](/components/list#listitem) } } | - | 5.7.0 |
+| masonry | Set Masonry common props | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#api), styles?: [MasonryProps\["styles"\]](/components/masonry#api) } | - |  |
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message#api), styles?: [MessageConfig\["styles"\]](/components/message#api) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |

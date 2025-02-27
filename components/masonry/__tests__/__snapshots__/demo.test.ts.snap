@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/masonry/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/dynamic.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:16px"
+>
+  <div
+    class="ant-masonry css-var-test-id"
+    style="height:0"
+  />
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
+    type="button"
+  >
+    <span>
+      Add Item
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/masonry/demo/fresh.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/image.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/responsive.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;

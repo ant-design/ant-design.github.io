@@ -2,7 +2,7 @@ import type { Breakpoint, ScreenMap } from '../../_util/responsiveObserver';
 import { responsiveArray } from '../../_util/responsiveObserver';
 import type { RowProps } from '../row';
 
-type Gap = number | undefined;
+export type Gap = number | undefined;
 
 export default function useGutter(
   gutter: RowProps['gutter'],

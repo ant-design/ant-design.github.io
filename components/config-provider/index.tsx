@@ -37,6 +37,7 @@ import type {
   InputConfig,
   InputNumberConfig,
   ListConfig,
+  MasonryConfig,
   MentionsConfig,
   MenuConfig,
   MessageConfig,
@@ -213,6 +214,7 @@ export interface ConfigProviderProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
+  masonry?: MasonryConfig;
   menu?: MenuConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: CheckboxConfig;
@@ -363,6 +365,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    masonry,
     menu,
     pagination,
     input,
@@ -472,6 +475,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     result,
     slider,
     breadcrumb,
+    masonry,
     menu,
     pagination,
     empty,

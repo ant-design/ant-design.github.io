@@ -1,4 +1,5 @@
 import React from 'react';
+import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -740,6 +741,42 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
+  it('Should Masonry props works', () => {
+    const { container } = render(
+      <ConfigProvider>
+        <Masonry
+          className="bamboo"
+          classNames={{
+            root: 'light',
+            item: 'little',
+          }}
+          style={{ color: 'red' }}
+          styles={{
+            root: {
+              background: 'green',
+            },
+            item: {
+              background: 'blue',
+            },
+          }}
+          columns={1}
+          items={[{ key: 0, data: 0, children: '-' }]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-masonry')).toHaveClass('bamboo');
+    expect(container.querySelector('.ant-masonry')).toHaveClass('light');
+    expect(container.querySelector('.ant-masonry-item')).toHaveClass('little');
+    expect(container.querySelector('.ant-masonry')).toHaveStyle({
+      color: 'red',
+      background: 'green',
+    });
+    expect(container.querySelector('.ant-masonry-item')).toHaveStyle({
+      background: 'blue',
+    });
   });
 
   it('Should Menu className & expandIcon works', () => {

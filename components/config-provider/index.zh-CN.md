@@ -140,6 +140,7 @@ const {
 | textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | 设置 Layout 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list-cn#listitem), styles: [ListItemProps\["styles"\]](/components/list-cn#listitem) } } | - | 5.7.0 |
+| masonry | 设置 Masonry 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#api), styles?: [MasonryProps\["styles"\]](/components/masonry#api) } | - |  |
 | menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message-cn#api), styles?: [MessageConfig\["styles"\]](/components/message-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
