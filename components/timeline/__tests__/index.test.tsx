@@ -276,4 +276,64 @@ describe('TimeLine', () => {
       });
     });
   });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'test-root',
+      item: 'test-item',
+      label: 'test-label',
+      indicator: 'test-indicator',
+      content: 'test-content',
+      tail: 'test-tail',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      item: { color: 'green' },
+      label: { color: 'blue' },
+      indicator: { color: 'yellow' },
+      content: { color: 'purple' },
+      tail: { color: 'orange' },
+    };
+    const { container } = render(
+      <TimeLine
+        classNames={customClassNames}
+        styles={customStyles}
+        mode="left"
+        items={[
+          {
+            label: '2015-09-01',
+            children: 'Create a services',
+          },
+          {
+            label: '2015-09-01 09:12:11',
+            children: 'Solve initial network problems',
+          },
+          {
+            children: 'Technical testing',
+          },
+          {
+            label: '2015-09-01 09:12:11',
+            children: 'Network problems being solved',
+          },
+        ]}
+      />,
+    );
+    const root = container.querySelector('.ant-timeline');
+    const item = container.querySelector('.ant-timeline-item');
+    const label = container.querySelector('.ant-timeline-item-label');
+    const indicator = container.querySelector('.ant-timeline-item-head');
+    const content = container.querySelector('.ant-timeline-item-content');
+    const tail = container.querySelector('.ant-timeline-item-tail');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(label).toHaveClass(customClassNames.label);
+    expect(indicator).toHaveClass(customClassNames.indicator);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(tail).toHaveClass(customClassNames.tail);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(item).toHaveStyle(customStyles.item);
+    expect(label).toHaveStyle(customStyles.label);
+    expect(indicator).toHaveStyle(customStyles.indicator);
+    expect(content).toHaveStyle(customStyles.content);
+    expect(tail).toHaveStyle(customStyles.tail);
+  });
 });

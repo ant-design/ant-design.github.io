@@ -18,6 +18,8 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
   hashId,
   pendingDot,
   mode = '' as TimelineProps['mode'],
+  classNames: timelineClassNames,
+  styles,
   ...restProps
 }) => {
   const getPositionCls = (position: string, idx: number) => {
@@ -58,12 +60,16 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
       return (
         <TimelineItem
           {...itemProps}
-          className={classNames([
+          classNames={timelineClassNames}
+          styles={styles}
+          className={classNames(
+            timelineClassNames?.item,
             itemClassName,
             !reverse && !!pending ? pendingClass : readyClass,
             getPositionCls(item?.position ?? '', idx),
-          ])}
+          )}
           key={item?.key || idx}
+          style={styles?.item}
         />
       );
     });
@@ -81,11 +87,12 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
     },
     className,
     rootClassName,
+    timelineClassNames?.root,
     hashId,
   );
 
   return (
-    <ul {...restProps} className={classString}>
+    <ul {...restProps} className={classString} style={styles?.root}>
       {itemsList}
     </ul>
   );

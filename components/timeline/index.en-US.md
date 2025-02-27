@@ -72,6 +72,10 @@ Node of timeline.
 | children | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Timeline"></ComponentTokenTable>

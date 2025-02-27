@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
+import { SemanticName } from './Timeline';
 
 type Color = 'blue' | 'red' | 'green' | 'gray';
 
@@ -17,6 +18,8 @@ export interface TimelineItemProps {
   style?: React.CSSProperties;
   label?: React.ReactNode;
   children?: React.ReactNode;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 // for compatibility
@@ -34,6 +37,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   position /** Dead, but do not pass in <li {...omit()} */,
   label,
   children,
+  classNames: timelineClassNames,
+  styles,
   ...restProps
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -56,12 +61,30 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 
   return (
     <li {...restProps} className={itemClassName}>
-      {label && <div className={`${prefixCls}-item-label`}>{label}</div>}
-      <div className={`${prefixCls}-item-tail`} />
-      <div className={dotClassName} style={{ borderColor: customColor, color: customColor }}>
+      {label && (
+        <div
+          className={classNames(`${prefixCls}-item-label`, timelineClassNames?.label)}
+          style={styles?.label}
+        >
+          {label}
+        </div>
+      )}
+      <div
+        className={classNames(`${prefixCls}-item-tail`, timelineClassNames?.tail)}
+        style={styles?.tail}
+      />
+      <div
+        className={classNames(dotClassName, timelineClassNames?.indicator)}
+        style={{ ...{ borderColor: customColor, color: customColor }, ...styles?.indicator }}
+      >
         {dot}
       </div>
-      <div className={`${prefixCls}-item-content`}>{children}</div>
+      <div
+        className={classNames(`${prefixCls}-item-content`, timelineClassNames?.content)}
+        style={styles?.content}
+      >
+        {children}
+      </div>
     </li>
   );
 };

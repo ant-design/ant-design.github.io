@@ -52,6 +52,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { TimelineProps } from '../timeline';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -269,6 +270,8 @@ export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'v
 
 export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
 
+export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
+
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
@@ -349,7 +352,7 @@ export interface ConfigComponentProps {
   card?: CardConfig;
   cardMeta?: CardMetaConfig;
   tabs?: TabsConfig;
-  timeline?: ComponentStyleConfig;
+  timeline?: TimelineConfig;
   timePicker?: TimePickerConfig;
   tour?: TourConfig;
   tooltip?: TooltipConfig;
