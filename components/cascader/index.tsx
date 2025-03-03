@@ -133,6 +133,16 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
+
+  /** @deprecated Please use `icons.expand` instead */
+  expandIcon?: React.ReactNode;
+  /** @deprecated Please use `icons.loading` instead */
+  loadingIcon?: React.ReactNode;
+
+  icons?: {
+    expand?: React.ReactNode;
+    loading?: React.ReactNode;
+  };
 }
 export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -170,6 +180,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     builtinPlacements,
     style,
     variant: customVariant,
+    icons,
     ...rest
   } = props;
 
@@ -179,6 +190,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     className: contextClassName,
+    icons: contextIcons,
     style: contextStyle,
   } = useComponentConfig('cascader');
 
@@ -271,7 +283,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
+  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon, {
+    ...contextIcons,
+    ...icons,
+  });
 
   // =================== Multiple ====================
   const checkable = useCheckable(cascaderPrefixCls, multiple);

@@ -2,23 +2,24 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { CascaderProps } from '..';
 
-const useColumnIcons = (prefixCls: string, rtl: boolean, expandIcon?: React.ReactNode) => {
-  let mergedExpandIcon = expandIcon;
-  if (!expandIcon) {
-    mergedExpandIcon = rtl ? <LeftOutlined /> : <RightOutlined />;
-  }
+const useColumnIcons = (
+  prefixCls: string,
+  rtl: boolean,
+  expandIcon?: React.ReactNode,
+  icons?: CascaderProps['icons'],
+) => {
+  const mergedExpandIcon =
+    expandIcon ?? icons?.expand ?? (rtl ? <LeftOutlined /> : <RightOutlined />);
 
   const loadingIcon = (
     <span className={`${prefixCls}-menu-item-loading-icon`}>
-      <LoadingOutlined spin />
+      {icons?.loading ?? <LoadingOutlined spin />}
     </span>
   );
 
-  return React.useMemo<Readonly<[React.ReactNode, React.ReactNode]>>(
-    () => [mergedExpandIcon, loadingIcon] as const,
-    [mergedExpandIcon],
-  );
+  return [mergedExpandIcon, loadingIcon] as const;
 };
 
 export default useColumnIcons;

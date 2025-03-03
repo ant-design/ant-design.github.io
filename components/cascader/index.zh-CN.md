@@ -62,7 +62,6 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
 | popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
 | dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
-| expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
@@ -92,6 +91,7 @@ demo:
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
+| icons | 内置图标 | { expand?: ReactNode; loading?: ReactNode; } | `{ expand: <RightOutlined/>, loading: <LoadingOutlined/> }` | 6.0.0 |
 
 ### showSearch
 

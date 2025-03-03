@@ -61,7 +61,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  |
 | popupClassName | The additional className of popup overlay | string | - | 4.23.0 |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
-| expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
 | expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
 | fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
@@ -90,8 +89,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
-| loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
+| icons | Built-in icons | { expand?: ReactNode; loading?: ReactNode; } | `{ expand: <RightOutlined/>, loading: <LoadingOutlined/> }` | 6.0.0 |
 
 ### showSearch
 
