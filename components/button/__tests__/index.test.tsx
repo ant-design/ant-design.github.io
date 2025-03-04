@@ -520,7 +520,7 @@ describe('Button', () => {
         theme={{
           components: {
             Button: {
-              colorBgDefaultDisabled: 'rgba(0, 0, 0, 0.1)',
+              defaultBgDisabled: 'rgba(0, 0, 0, 0.1)',
             },
           },
         }}
@@ -540,7 +540,7 @@ describe('Button', () => {
         theme={{
           components: {
             Button: {
-              colorBgDashedDisabled: 'rgba(0, 0, 0, 0.2)',
+              dashedBgDisabled: 'rgba(0, 0, 0, 0.2)',
             },
           },
         }}

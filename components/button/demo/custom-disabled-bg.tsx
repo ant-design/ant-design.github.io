@@ -7,8 +7,8 @@ const App: React.FC = () => (
       theme={{
         components: {
           Button: {
-            colorBgDefaultDisabled: 'rgba(0,0,0,0.1)',
-            colorBgDashedDisabled: 'rgba(0,0,0,0.4)',
+            defaultBgDisabled: 'rgba(0,0,0,0.1)',
+            dashedBgDisabled: 'rgba(0,0,0,0.4)',
           },
         },
       }}

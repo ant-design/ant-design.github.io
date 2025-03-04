@@ -224,12 +224,12 @@ export interface ComponentToken {
    * @desc type='default'禁用下的背景颜色
    * @descE background color when type='default' is disabled
    */
-  colorBgDefaultDisabled: string;
+  defaultBgDisabled: string;
   /**
    * @desc type='dashed'禁用下的背景颜色
    * @descE background color when type='dashed' is disabled
    */
-  colorBgDashedDisabled: string;
+  dashedBgDisabled: string;
 }
 
 type ShadowColorMap = {
@@ -290,8 +290,8 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     }),
     {},
   );
-  const colorBgDefaultDisabled = token.colorBgDefaultDisabled ?? token.colorBgContainerDisabled;
-  const colorBgDashedDisabled = token.colorBgDashedDisabled ?? token.colorBgContainerDisabled;
+  const defaultBgDisabled = token.colorBgContainerDisabled;
+  const dashedBgDisabled = token.colorBgContainerDisabled;
 
   return {
     ...shadowColorTokens,
@@ -346,7 +346,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
       (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
     ),
-    colorBgDefaultDisabled,
-    colorBgDashedDisabled,
+    defaultBgDisabled,
+    dashedBgDisabled,
   };
 };
