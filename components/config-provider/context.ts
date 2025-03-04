@@ -180,7 +180,7 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'icons' | 'styles'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 

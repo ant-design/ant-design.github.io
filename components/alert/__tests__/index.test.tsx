@@ -7,6 +7,7 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertRef } from '../Alert';
@@ -257,5 +258,25 @@ describe('Alert', () => {
     expect(titleElement.style.backgroundColor).toBe('blue');
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
+  });
+
+  it('should support custom icons via global config', () => {
+    render(
+      <ConfigProvider alert={{ icons: { success: <span>foobar</span>, close: 'bamboo' } }}>
+        <Alert type="success" showIcon closable />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeVisible();
+    expect(screen.getByText('bamboo')).toBeVisible();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    render(
+      <ConfigProvider alert={{ icons: { success: <span>foobar</span>, close: 'bamboo' } }}>
+        <Alert type="success" showIcon closable icons={{ success: 'hahaha' }} />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('hahaha')).toBeVisible();
+    expect(screen.getByText('bamboo')).toBeVisible();
   });
 });

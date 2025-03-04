@@ -44,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
+| icons | Built-in icons | { info?: ReactNode; success?: ReactNode; warning?: ReactNode; error?: ReactNode; close?: ReactNode; } | `{ info: <InfoCircleFilled/>, success: <CheckCircleFilled/>, warning: <ExclamationCircleFilled/>, error: <CloseCircleFilled/>, close: <CloseOutlined/> }` | 6.0.0 |
 | ~~message~~ | Content of Alert, please use `title` instead | ReactNode | - |  |
 | title | Content of Alert | ReactNode | - |  |
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  |
