@@ -1,19 +1,20 @@
 import React from 'react';
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import { Avatar, List, Space } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
-import { Avatar, List, Space } from 'antd';
-import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-
 const locales = {
   cn: {
-    extra: '设置额外内容',
-    actions: '设置列表操作组',
+    root: '根元素',
+    extra: '额外内容',
+    actions: '列表操作组',
   },
   en: {
-    extra: 'set `extra` of List.Item',
-    actions: 'set `actions` of List.Item',
+    root: 'Root Element',
+    extra: 'Extra Element',
+    actions: 'Actions Element',
   },
 };
 
@@ -35,11 +36,10 @@ const data = Array.from({ length: 1 }).map((_, i) => ({
 }));
 
 const BlockList: React.FC<React.PropsWithChildren> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
-    <div ref={divRef} style={{ position: 'absolute', inset: 0, height: 300 }}>
+    <div style={{ position: 'absolute', inset: 0, height: 420, margin: 20 }}>
       <List
+        {...props}
         itemLayout="vertical"
         size="large"
         dataSource={data}
@@ -77,8 +77,9 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      height={300}
+      height={420}
       semantics={[
+        { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'extra', desc: locale.extra, version: '5.18.0' },
         { name: 'actions', desc: locale.actions, version: '5.18.0' },
       ]}

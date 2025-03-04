@@ -249,7 +249,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             marginInlineEnd: avatarMarginRight,
           },
 
-          [`${componentCls}-item-meta-content`]: {
+          [`${componentCls}-item-meta-section`]: {
             flex: '1 0',
             width: 0,
             color: colorText,
