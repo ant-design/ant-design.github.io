@@ -293,6 +293,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           '> button': {
             color: 'inherit',
             fontWeight: 'inherit',
+            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,

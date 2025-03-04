@@ -79,10 +79,12 @@ const App: React.FC = () => {
       value={value}
       placeholder="Select users"
       fetchOptions={fetchUserList}
-      onChange={(newValue) => {
-        setValue(newValue as UserValue[]);
-      }}
       style={{ width: '100%' }}
+      onChange={(newValue) => {
+        if (Array.isArray(newValue)) {
+          setValue(newValue);
+        }
+      }}
     />
   );
 };

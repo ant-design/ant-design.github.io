@@ -341,14 +341,8 @@ describe('Upload', () => {
       const file = { uid: '-3', name: 'item3.jpg' };
       const fileList = produce(
         [
-          {
-            uid: '-1',
-            name: 'item.jpg',
-          },
-          {
-            uid: '-2',
-            name: 'item2.jpg',
-          },
+          { uid: '-1', name: 'item.jpg' },
+          { uid: '-2', name: 'item2.jpg' },
         ],
         (draftState) => {
           draftState.push({

@@ -1,8 +1,9 @@
+/* eslint-disable compat/compat */
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
+import type { AnyObject } from 'antd/es/_util/type';
 import type { SorterResult } from 'antd/es/table/interface';
-import qs from 'qs';
 
 type ColumnsType<T extends object = object> = TableProps<T>['columns'];
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
@@ -49,6 +50,14 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
+const toURLSearchParams = <T extends AnyObject>(record: T) => {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(record)) {
+    params.append(key, value);
+  }
+  return params;
+};
+
 const getRandomuserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
@@ -65,9 +74,11 @@ const App: React.FC = () => {
     },
   });
 
+  const params = toURLSearchParams(getRandomuserParams(tableParams));
+
   const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
+    fetch(`https://randomuser.me/api?${params.toString()}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);

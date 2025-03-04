@@ -146,16 +146,16 @@ export interface ComponentToken {
   /** @deprecated Use `dangerItemActiveBg` instead */
   colorDangerItemBgActive: string;
   /**
-   * @desc 危险菜单项文字激活颜色
-   * @descEN Color of active danger menu item text
+   * @desc 危险菜单项激活态背景色
+   * @descEN Background color of danger menu item when active
    */
   dangerItemActiveBg: string;
 
   /** @deprecated Use `dangerItemSelectedBg` instead */
   colorDangerItemBgSelected: string;
   /**
-   * @desc 危险菜单项文字选中颜色
-   * @descEN Color of selected danger menu item text
+   * @desc 危险菜单项选中背景色
+   * @descEN Background color of selected danger menu item
    */
   dangerItemSelectedBg: string;
 
