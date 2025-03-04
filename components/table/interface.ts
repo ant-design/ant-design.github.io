@@ -59,6 +59,7 @@ export interface TableLocale {
   triggerDesc?: string;
   triggerAsc?: string;
   cancelSort?: string;
+  sortableColumn?: string;
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;

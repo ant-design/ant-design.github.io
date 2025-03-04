@@ -34,6 +34,7 @@ const localeValues: Locale = {
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
+    sortableColumn: 'Sortable column',
   },
   Tour: {
     Next: 'Next',

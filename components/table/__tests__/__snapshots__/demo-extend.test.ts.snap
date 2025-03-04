@@ -1966,6 +1966,7 @@ Array [
                       Name
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Age"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
@@ -2226,6 +2227,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Action"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
@@ -4162,6 +4164,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Address"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -6577,6 +6580,7 @@ Array [
                       Name
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Age"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
@@ -6837,6 +6841,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Action"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
@@ -10814,6 +10819,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -11598,6 +11604,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -13671,6 +13678,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 </tr>
                 <tr>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
@@ -14765,6 +14773,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
               >
                 <tr>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -15151,6 +15160,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Age"
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
@@ -16425,6 +16435,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     Name
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Chinese Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -16509,6 +16520,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Math Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -16593,6 +16605,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     </div>
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="English Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
@@ -21702,6 +21715,7 @@ Array [
                 >
                   <tr>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Name"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
@@ -21957,6 +21971,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Age"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
@@ -22042,6 +22057,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-description="Sortable column"
                       aria-label="Address"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
@@ -22535,6 +22551,7 @@ exports[`renders components/table/demo/resizable-column.tsx extend context corre
                     />
                   </th>
                   <th
+                    aria-description="Sortable column"
                     aria-label="Amount"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     scope="col"
