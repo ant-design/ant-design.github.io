@@ -39,6 +39,13 @@ export interface ArgsProps {
   style?: React.CSSProperties;
   className?: string;
   classNames?: Partial<Record<SemanticName, string>>;
+  icons?: {
+    info?: React.ReactNode;
+    success?: React.ReactNode;
+    error?: React.ReactNode;
+    warning?: React.ReactNode;
+    loading?: React.ReactNode;
+  };
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /**
    * @descCN 消息通知点击时的回调函数
