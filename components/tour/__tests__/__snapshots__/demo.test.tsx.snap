@@ -25,7 +25,84 @@ Array [
         type="button"
       >
         <span>
-           Upload
+          Upload
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Save
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/tour/demo/actions-render.tsx correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Begin Tour
+    </span>
+  </button>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Upload
         </span>
       </button>
     </div>
@@ -385,7 +462,7 @@ Array [
         type="button"
       >
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </div>
@@ -462,7 +539,7 @@ Array [
         type="button"
       >
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </div>
