@@ -4,7 +4,6 @@ import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
@@ -48,13 +47,19 @@ const MenuItem: GenericComponent = (props) => {
     const label = (children as React.ReactNode[])?.[0];
 
     const wrapNode = (
-      <span
-        className={classNames(`${prefixCls}-title-content`, {
-          [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
-        })}
-      >
-        {children}
-      </span>
+      <>
+        <span className={classNames(`${prefixCls}-title-content`)}>{children}</span>
+        {extra && (
+          <span
+            className={classNames(
+              `${prefixCls}-title-content`,
+              `${prefixCls}-title-content-with-extra`,
+            )}
+          >
+            {extra}
+          </span>
+        )}
+      </>
     );
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456

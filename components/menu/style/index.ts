@@ -645,9 +645,10 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           transition: `color ${motionDurationSlow}`,
 
           '&-with-extra': {
-            display: 'inline-flex',
-            alignItems: 'center',
-            width: '100%',
+            color: 'rgba(0,0,0,0.45)',
+            width: '40%',
+            fontWeight: '500',
+            paddingLeft: '2px',
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
