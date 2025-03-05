@@ -24,6 +24,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
+  block?: boolean;
   split?: React.ReactNode;
   wrap?: boolean;
   classNames?: { item: string };
@@ -44,6 +45,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const {
     size = contextSize ?? 'small',
     align,
+    block,
     className,
     rootClassName,
     children,
@@ -81,6 +83,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
+      [`${prefixCls}-block`]: block,
       [`${prefixCls}-gap-row-${verticalSize}`]: isPresetVerticalSize,
       [`${prefixCls}-gap-col-${horizontalSize}`]: isPresetHorizontalSize,
     },

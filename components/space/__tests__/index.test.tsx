@@ -215,6 +215,17 @@ describe('Space', () => {
     expect(ref.current).toBe(container.firstChild);
   });
 
+  it('should render block', () => {
+    const { container } = render(
+      <Space block>
+        text1<span>text1</span>
+        <>text3</>
+      </Space>,
+    );
+
+    expect(container.querySelector('.ant-space-block')).toBeInTheDocument();
+  });
+
   it('should classNames work', () => {
     const { container } = render(
       <Space classNames={{ item: 'test-classNames' }}>

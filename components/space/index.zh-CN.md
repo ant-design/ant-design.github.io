@@ -47,6 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| block | 将宽度调整为父元素宽度的选项 | boolean | false | 5.25.0 |
 | classNames | 语义化 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |

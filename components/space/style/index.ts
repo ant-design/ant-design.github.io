@@ -39,6 +39,9 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
           alignItems: 'baseline',
         },
       },
+      '&-block': {
+        display: 'flex',
+      },
       [`${componentCls}-item:empty`]: {
         display: 'none',
       },
