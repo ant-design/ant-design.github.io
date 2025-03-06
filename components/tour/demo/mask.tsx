@@ -50,7 +50,7 @@ const App: React.FC = () => {
       <Divider />
 
       <Space>
-        <Button ref={ref1}> Upload</Button>
+        <Button ref={ref1}>Upload</Button>
         <Button ref={ref2} type="primary">
           Save
         </Button>

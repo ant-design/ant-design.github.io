@@ -22,6 +22,7 @@ Use when you want to guide users through a product.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mask.tsx">Custom mask style</code>
 <code src="./demo/indicator.tsx">Custom indicator</code>
+<code src="./demo/actions-render.tsx">Custom action</code>
 <code src="./demo/gap.tsx">Custom highlighted area style</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -46,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | current | What is the current step | `number` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | custom indicator | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
+| actionsRender | custom action | `(originNode: ReactNode, info: { current: number, total: number }) => ReactNode` | - | 5.25.0 |
 | zIndex | Tour's zIndex | number | 1001 | 5.3.0 |
 | getPopupContainer | Set the rendering node of Tour floating layer | `(node: HTMLElement) => HTMLElement` | body | 5.12.0 |
 

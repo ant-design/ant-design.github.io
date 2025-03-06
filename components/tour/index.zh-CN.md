@@ -23,6 +23,7 @@ tag: 5.0.0
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/mask.tsx">自定义遮罩样式</code>
 <code src="./demo/indicator.tsx">自定义指示器</code>
+<code src="./demo/actions-render.tsx">自定义操作按钮</code>
 <code src="./demo/gap.tsx">自定义高亮区域的样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -48,6 +49,7 @@ tag: 5.0.0
 | current | 当前处于哪一步 | `number` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
+| actionsRender | 自定义操作按钮 | `(originNode: ReactNode, info: { current: number, total: number }) => ReactNode` | - | 5.25.0 |
 | zIndex | Tour 的层级 | number | 1001 | 5.3.0 |
 | getPopupContainer | 设置 Tour 浮层的渲染节点，默认是 body | `(node: HTMLElement) => HTMLElement` | body | 5.12.0 |
 
@@ -61,7 +63,7 @@ tag: 5.0.0
 | cover | 展示的图片或者视频 | `ReactNode` | - |  |
 | title | 标题 | `ReactNode` | - |  |
 | description | 主要描述部分 | `ReactNode` | - |  |
-| placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` | |
+| placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | mask | 是否启用蒙层，也可传入配置改变蒙层样式和填充色，默认跟随 Tour 的 `mask` 属性 | `boolean \| { style?: React.CSSProperties; color?: string; }` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
