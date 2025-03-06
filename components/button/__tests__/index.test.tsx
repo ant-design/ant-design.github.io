@@ -508,9 +508,51 @@ describe('Button', () => {
     const { getByRole } = render(
       <Button href="https://example.com" onClick={handleClick}>
         Link
-      </Button>
+      </Button>,
     );
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('should support customizing the background color of default type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              defaultBgDisabled: 'rgba(0, 0, 0, 0.1)',
+            },
+          },
+        }}
+      >
+        <Button disabled>button</Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-default')!;
+    expect(button).toBeDisabled();
+    expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.1)');
+  });
+
+  it('should support customizing the background color of dashed type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              dashedBgDisabled: 'rgba(0, 0, 0, 0.2)',
+            },
+          },
+        }}
+      >
+        <Button type="dashed" disabled>
+          button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-dashed')!;
+    expect(button).toBeDisabled();
+    expect(window.getComputedStyle(button).background).toBe('rgba(0, 0, 0, 0.2)');
   });
 });
