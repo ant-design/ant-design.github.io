@@ -588,31 +588,15 @@ exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1
 `;
 
 exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+<button
+  aria-describedby="test-id"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  type="button"
 >
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Enable
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      aria-describedby="test-id"
-    >
-      Tooltip will show on mouse enter.
-    </span>
-  </div>
-</div>
+  <span>
+    Enable
+  </span>
+</button>
 `;
 
 exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
@@ -1022,4 +1006,12 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/tooltip/demo/wrap-custom-component.tsx correctly 1`] = `
+<span
+  aria-describedby="test-id"
+>
+  This text is inside a component with the necessary events exposed.
+</span>
 `;

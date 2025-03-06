@@ -125,7 +125,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     prefixCls,
     `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
+      [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false, // todo: remove in next major version
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },

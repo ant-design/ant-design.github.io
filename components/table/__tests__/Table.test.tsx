@@ -406,7 +406,7 @@ describe('Table', () => {
 
     expect(tblRef.current).toHaveClass('ant-table-wrapper');
     expect(tblRef.current?.nativeElement).toBe(wrapDom);
-    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
+    expect(typeof tblRef.current?.scrollTo === 'function').toBeTruthy();
   });
 
   it('support hidden columns', () => {

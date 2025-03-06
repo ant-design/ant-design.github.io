@@ -13,7 +13,7 @@ You might want to use another date library (**Ant design currently supports [mom
 
 The first way is to use `generatePicker` (or `generateCalendar`) to help create Picker components.
 
-First, we initialize an antd demo with `create-react-app`. You can refer to [Usage with create-react-app](/docs/react/use-with-create-react-app), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+First, we initialize an antd demo. You can refer to [Scaffolding Guide](https://u.ant.design/guide), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 ### DatePicker.tsx
 

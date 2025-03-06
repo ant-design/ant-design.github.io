@@ -186,7 +186,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   const {
     formItemCls,
     iconCls,
-    componentCls,
     rootPrefixCls,
     antCls,
     labelRequiredMarkColor,
@@ -261,18 +260,20 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             verticalAlign: 'top',
           },
 
-          // Required mark
-          [`&${formItemCls}-required:not(${formItemCls}-required-mark-optional)::before`]: {
-            display: 'inline-block',
-            marginInlineEnd: token.marginXXS,
-            color: labelRequiredMarkColor,
-            fontSize: token.fontSize,
-            fontFamily: 'SimSun, sans-serif',
-            lineHeight: 1,
-            content: '"*"',
-
-            [`${componentCls}-hide-required-mark &`]: {
-              display: 'none',
+          [`&${formItemCls}-required`]: {
+            '&::before': {
+              display: 'inline-block',
+              marginInlineEnd: token.marginXXS,
+              color: labelRequiredMarkColor,
+              fontSize: token.fontSize,
+              fontFamily: 'SimSun, sans-serif',
+              lineHeight: 1,
+              content: '"*"',
+            },
+            [`&${formItemCls}-required-mark-hidden, &${formItemCls}-required-mark-optional`]: {
+              '&::before': {
+                display: 'none',
+              },
             },
           },
 
@@ -282,7 +283,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             marginInlineStart: token.marginXXS,
             color: token.colorTextDescription,
 
-            [`${componentCls}-hide-required-mark &`]: {
+            [`&.${formItemCls}-required-mark-hidden`]: {
               display: 'none',
             },
           },

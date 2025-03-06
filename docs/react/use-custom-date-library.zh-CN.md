@@ -11,7 +11,7 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 
 第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
-我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 create-react-app 中使用](/docs/react/use-with-create-react-app-cn) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+我们先初始化一个 antd demo，你可以参考 [脚手架指南](https://u.ant.design/guide) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 ### DatePicker.tsx
 

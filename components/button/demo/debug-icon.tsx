@@ -59,12 +59,12 @@ const App: React.FC = () => {
               Search
             </Button>
           </Flex>
-          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51811 👇🏻</Divider>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51811 </Divider>
           <div>
             <Button>without icon</Button>
             <Button icon={<SearchOutlined />}>with icon</Button>
           </div>
-          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/52124 👇🏻</Divider>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/52124 </Divider>
           <div>
             <Button
               style={{
@@ -82,7 +82,7 @@ const App: React.FC = () => {
               with icon
             </Button>
           </div>
-          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻</Divider>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51380 </Divider>
           <div>
             <Button size="large" icon={<FiColumns className="my-class-name" />} />
             <Button size="large" icon={<FiColumns />}>
@@ -93,7 +93,7 @@ const App: React.FC = () => {
             <Button size="large">without icon</Button>
             <Input.Search style={{ width: 100 }} />
           </div>
-          <Divider plain>👇🏻 https://github.com/ant-design/ant-design/issues/51380 👇🏻</Divider>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51380 </Divider>
           <Flex
             gap="small"
             style={{

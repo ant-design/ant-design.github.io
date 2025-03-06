@@ -1372,49 +1372,35 @@ Array [
 exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
->
-  <div
-    class="ant-space-item"
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Enable
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      aria-describedby="test-id"
-    >
-      Tooltip will show on mouse enter.
+    <span>
+      Enable
     </span>
+  </button>,
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        class="ant-tooltip-inner"
+        id="test-id"
+        role="tooltip"
       />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 2`] = `[]`;
@@ -2259,3 +2245,35 @@ Array [
 `;
 
 exports[`renders components/tooltip/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tooltip/demo/wrap-custom-component.tsx extend context correctly 1`] = `
+Array [
+  <span
+    aria-describedby="test-id"
+  >
+    This text is inside a component with the necessary events exposed.
+  </span>,
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        id="test-id"
+        role="tooltip"
+      >
+        prompt text
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/tooltip/demo/wrap-custom-component.tsx extend context correctly 2`] = `[]`;

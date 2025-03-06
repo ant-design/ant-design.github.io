@@ -10,7 +10,7 @@ Ant Design React is dedicated to providing a **good development experience** for
 
 The official guide also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and React. If you are just starting to learn front-end or React, it may not be the best idea to use the UI framework as your first step.
 
-Finally, if you are working in a local development environment, please refer to [Use with create-react-app](/docs/react/use-with-create-react-app).
+Finally, if you are working in a local development environment, please refer to [Scaffolding Guide](https://u.ant.design/guide) to create a new project.
 
 ---
 

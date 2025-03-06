@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.24.2",
+  "version": "5.24.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -256,7 +256,7 @@
     "is-ci": "^4.0.0",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.7.0",
-    "jest-axe": "^9.0.0",
+    "jest-axe": "^10.0.0",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "jest-environment-node": "^29.7.0",
@@ -330,7 +330,15 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "pnpm": {
+    "overrides": {
+      "nwsapi": "2.2.16"
+    }
+  },
   "overrides": {
+    "nwsapi": "2.2.16"
+  },
+  "resolutions": {
     "nwsapi": "2.2.16"
   },
   "publishConfig": {
