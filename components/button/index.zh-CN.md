@@ -85,6 +85,7 @@ group:
 | type | 语法糖，设置按钮类型。当设置 `variant` 与 `color` 时以后者为准 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | variant | 设置按钮的变体 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 |
+| icons | 内置图标 | { loading?: ReactNode; } | `{ loading: <LoadingOutlined/> }` | 6.0.0 |
 
 支持原生 button 的其他所有属性。
 

@@ -45,6 +45,9 @@ export interface BaseButtonProps {
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
+  icons?: {
+    loading?: React.ReactNode;
+  };
   styles?: { icon: React.CSSProperties };
 }
 
@@ -118,6 +121,7 @@ const InternalCompoundedButton = React.forwardRef<
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
+    icons,
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
@@ -152,6 +156,7 @@ const InternalCompoundedButton = React.forwardRef<
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
+    icons: contextIcons,
     styles: contextStyles,
   } = useComponentConfig('button');
 
@@ -334,6 +339,7 @@ const InternalCompoundedButton = React.forwardRef<
         prefixCls={prefixCls}
         loading={innerLoading}
         mount={isMountRef.current}
+        icon={icons?.loading ?? contextIcons?.loading}
       />
     );
 
