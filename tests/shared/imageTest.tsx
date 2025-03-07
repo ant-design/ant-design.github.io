@@ -111,7 +111,7 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await page.setViewport({ width: 800, height: 600 });
+      await page.setViewport({ width: 800, height: 600, isMobile: false, hasTouch: false });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
@@ -120,7 +120,11 @@ export default function imageTest(
           request.continue();
         }
       };
-
+      await page.setUserAgent(
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      );
+      await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+      await page.emulateVisionDeficiency('none');
       const { openTriggerClassName } = options;
 
       const requestListener = (request: any) => onRequestHandle(request as HTTPRequest);
