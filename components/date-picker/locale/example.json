@@ -16,10 +16,22 @@
     "yearSelect": "Choose a year",
     "decadeSelect": "Choose a decade",
     "yearFormat": "YYYY",
-    "dateFormat": "M/D/YYYY",
-    "dayFormat": "D",
-    "dateTimeFormat": "M/D/YYYY HH:mm:ss",
-    "monthFormat": "MMMM",
+
+    "dateFormat": "[INVALID: Use `fieldDateFormat` instead]M/D/YYYY",
+    "fieldDateFormat": "M/D/YYYY",
+
+    "dayFormat": "[DEPRECATED: Use `cellDateFormat` instead]D",
+    "cellDateFormat": "D",
+
+    "dateTimeFormat": "[INVALID: Use `fieldDateTimeFormat` instead]M/D/YYYY HH:mm:ss",
+    "fieldDateTimeFormat": "M/D/YYYY HH:mm:ss",
+
+    "monthFormat": "[DEPRECATED: Use `fieldMonthFormat` instead]MMMM",
+    "fieldMonthFormat": "MMMM",
+
+    "weekFormat": "[DEPRECATED: Use `fieldWeekFormat` instead]YYYY-wo",
+    "fieldWeekFormat": "YYYY-wo",
+
     "monthBeforeYear": true,
     "previousMonth": "Previous month (PageUp)",
     "nextMonth": "Next month (PageDown)",
@@ -48,8 +60,8 @@
   "timePickerLocale": {
     "placeholder": "Select time"
   },
-  "dateFormat": "YYYY-MM-DD",
-  "dateTimeFormat": "YYYY-MM-DD HH:mm:ss",
-  "weekFormat": "YYYY-wo",
-  "monthFormat": "YYYY-MM"
+  "dateFormat": "[INVALID, Use `lang.fieldDateFormat` instead]YYYY-MM-DD",
+  "dateTimeFormat": "[INVALID: Use `lang.fieldDateTimeFormat` instead]YYYY-MM-DD HH:mm:ss",
+  "weekFormat": "[INVALID: Use `lang.fieldWeekFormat` instead]YYYY-wo",
+  "monthFormat": "[INVALID: Use `lang.fieldMonthFormat` instead]YYYY-MM"
 }
