@@ -9,11 +9,14 @@ import {
   fireEvent,
   pureRender,
   render,
+  renderHook,
   triggerResize,
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
+import useHandleResizeWrapper from '../hooks/useHandleResizeWrapper';
+import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 
 const { TextArea } = Input;
 
@@ -529,5 +532,81 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
+  });
+});
+
+describe('TextArea useHandleResizeWrapper', () => {
+  it('does nothing when rcTextArea is null', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+    // Calling with null should not throw or change anything.
+    expect(() => result.current?.handleResizeWrapper(null)).not.toThrow();
+  });
+
+  it('does nothing when style width does not include "px"', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+
+    const fakeRcTextArea = {
+      resizableTextArea: {
+        textArea: {
+          style: {
+            width: '100', // missing 'px'
+          },
+        },
+      },
+      nativeElement: {
+        offsetWidth: 110,
+        style: {} as any,
+      },
+    } as unknown as RcTextAreaRef;
+
+    result.current?.handleResizeWrapper(fakeRcTextArea);
+    // nativeElement.style.width remains unchanged.
+    expect(fakeRcTextArea.nativeElement.style.width).toBeUndefined();
+  });
+
+  it('adjusts width correctly when offsetWidth is slightly greater than the textArea width (increased scenario)', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+
+    const fakeRcTextArea = {
+      resizableTextArea: {
+        textArea: {
+          style: {
+            width: '100px', // valid width with px
+          },
+        },
+      },
+      // offsetWidth is 101 so the difference is 1 (< ELEMENT_GAP of 2)
+      nativeElement: {
+        offsetWidth: 101,
+        style: {} as any,
+      },
+    } as unknown as RcTextAreaRef;
+
+    result.current?.handleResizeWrapper(fakeRcTextArea);
+    // Expected new width: 100 + 2 = 102px.
+    expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
+  });
+
+  it('adjusts width correctly when offsetWidth is significantly greater than the textArea width (decreased scenario)', () => {
+    const { result } = renderHook(() => useHandleResizeWrapper());
+
+    const fakeRcTextArea = {
+      resizableTextArea: {
+        textArea: {
+          style: {
+            width: '100px',
+          },
+        },
+      },
+      // offsetWidth is 105 so the difference is 5 (> ELEMENT_GAP of 2)
+      nativeElement: {
+        offsetWidth: 105,
+        style: {} as any,
+      },
+    } as unknown as RcTextAreaRef;
+
+    result.current?.handleResizeWrapper(fakeRcTextArea);
+    // Expected new width remains: 100 + 2 = 102px.
+    expect(fakeRcTextArea.nativeElement.style.width).toBe('102px');
   });
 });

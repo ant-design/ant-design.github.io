@@ -21,6 +21,7 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
+import useHandleResizeWrapper from './hooks/useHandleResizeWrapper';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -55,6 +56,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     style,
     styles,
     variant: customVariant,
+    showCount,
     ...rest
   } = props;
 
@@ -113,6 +115,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
   const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const { handleResizeWrapper } = useHandleResizeWrapper();
 
   return wrapSharedCSSVar(
     wrapCSSVar(
@@ -164,6 +167,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
+        onResize={(size) => {
+          rest.onResize?.(size);
+          showCount && handleResizeWrapper(innerRef.current);
+        }}
         ref={innerRef}
       />,
     ),
