@@ -88,8 +88,8 @@ const App: React.FC = () => {
           onPressEnter={handleInputConfirm}
         />
       ) : (
-        <Tag onClick={showInput} style={tagPlusStyle}>
-          <PlusOutlined /> New Tag
+        <Tag onClick={showInput} style={tagPlusStyle} icon={<PlusOutlined />}>
+          New Tag
         </Tag>
       )}
     </>

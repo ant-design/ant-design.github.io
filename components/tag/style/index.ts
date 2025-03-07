@@ -3,7 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
-import { resetComponent } from '../../style';
+import { resetComponent, genFocusStyle } from '../../style';
 import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -38,7 +38,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
       height: 'auto',
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
@@ -69,6 +70,14 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.colorTextDescription,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
+        padding: 0,
+        overflow: 'hidden',
+        backgroundColor: 'transparent',
+        border: 'none',
+        outline: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        ...genFocusStyle(token),
 
         '&:hover': {
           color: token.colorTextHeading,
@@ -107,6 +116,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         '&:active': {
           backgroundColor: token.colorPrimaryActive,
         },
+
+        ...genFocusStyle(token),
       },
 
       '&-hidden': {
