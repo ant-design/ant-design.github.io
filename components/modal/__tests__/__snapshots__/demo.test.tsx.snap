@@ -91,7 +91,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -175,7 +175,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -753,7 +753,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -994,7 +994,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -1237,7 +1237,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg

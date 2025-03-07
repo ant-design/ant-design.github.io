@@ -1,5 +1,4 @@
 import React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
@@ -10,12 +9,8 @@ import { ModalContextProvider } from './context';
 import type { ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
 
-export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
-  return (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
+export function renderCloseIcon(prefixCls: string, closeIcon: React.ReactNode) {
+  return <span className={`${prefixCls}-close-x`}>{closeIcon}</span>;
 }
 
 interface FooterProps {

@@ -18341,7 +18341,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18433,7 +18433,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18525,7 +18525,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18617,7 +18617,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18709,7 +18709,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18801,7 +18801,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close ant-modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg
@@ -18893,7 +18893,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
               >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close prefix-Modal-close-icon"
+                  class="anticon anticon-close"
                   role="img"
                 >
                   <svg

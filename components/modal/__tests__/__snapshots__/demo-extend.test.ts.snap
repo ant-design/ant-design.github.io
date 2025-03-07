@@ -99,7 +99,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -183,7 +183,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -789,7 +789,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -1030,7 +1030,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
@@ -1279,7 +1279,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
           >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-modal-close-icon"
+              class="anticon anticon-close"
               role="img"
             >
               <svg
