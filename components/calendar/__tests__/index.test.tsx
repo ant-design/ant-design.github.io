@@ -62,6 +62,16 @@ describe('Calendar', () => {
     fireEvent.click(findSelectItem(wrapper)[index]);
   }
 
+  function getCell(text: string) {
+    const cells = Array.from(document.querySelectorAll('.ant-picker-cell'));
+    return cells.find((cell) => cell.textContent === text);
+  }
+
+  function getSelectItem(title: string) {
+    const nodes = Array.from(document.querySelectorAll('.ant-select-item'));
+    return nodes.find((node) => node.getAttribute('title') === title);
+  }
+
   // https://github.com/ant-design/ant-design/issues/30392
   it('should be able to set undefined or null', () => {
     expect(() => {
@@ -569,5 +579,26 @@ describe('Calendar', () => {
     expect(container.firstChild).toMatchSnapshot();
 
     jest.useRealTimers();
+  });
+
+  it('disabledDate should work correctly', () => {
+    const disabledDate = (current: any) => current && current < Dayjs('2025-02-11');
+    const zhCN = require('../locale/zh_CN').default;
+    const { container } = render(
+      <Calendar disabledDate={disabledDate} fullscreen={false} locale={zhCN} />,
+    );
+    expect(getCell('10')).toHaveClass('ant-picker-cell-disabled');
+    expect(getCell('11')).not.toHaveClass('ant-picker-cell-disabled');
+    expect(getCell('12')).not.toHaveClass('ant-picker-cell-disabled');
+
+    openSelect(container, '.ant-picker-calendar-year-select');
+    expect(getSelectItem('2024年')).toHaveClass('ant-select-item-option-disabled');
+    expect(getSelectItem('2025年')).not.toHaveClass('ant-select-item-option-disabled');
+    expect(getSelectItem('2026年')).not.toHaveClass('ant-select-item-option-disabled');
+
+    openSelect(container, '.ant-picker-calendar-month-select');
+    expect(getSelectItem('1月')).toHaveClass('ant-select-item-option-disabled');
+    expect(getSelectItem('2月')).not.toHaveClass('ant-select-item-option-disabled');
+    expect(getSelectItem('3月')).not.toHaveClass('ant-select-item-option-disabled');
   });
 });

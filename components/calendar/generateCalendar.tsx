@@ -294,6 +294,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             validRange={validRange}
             onChange={onInternalSelect}
             onModeChange={triggerModeChange}
+            disabledDate={disabledDate}
           />
         )}
         <RCPickerPanel

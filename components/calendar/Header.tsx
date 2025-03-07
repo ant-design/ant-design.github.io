@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { Locale } from 'rc-picker/lib/interface';
+import type { DisabledDate, Locale, PanelMode } from 'rc-picker/lib/interface';
 
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
@@ -20,11 +20,21 @@ interface SharedProps<DateType> {
   fullscreen: boolean;
   divRef: React.RefObject<HTMLDivElement>;
   onChange: (year: DateType) => void;
+  disabledDate?: DisabledDate<DateType>;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
-  const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
-    props;
+  const {
+    fullscreen,
+    validRange,
+    generateConfig,
+    locale,
+    prefixCls,
+    value,
+    onChange,
+    divRef,
+    disabledDate,
+  } = props;
 
   const year = generateConfig.getYear(value || generateConfig.getNow());
 
@@ -37,9 +47,27 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
   }
 
   const suffix = locale && locale.year === '年' ? '年' : '';
-  const options: { label: string; value: number }[] = [];
+
+  // ======================== Disabled ========================
+  const mergedDisabledDate = disabledDate
+    ? (currentDate: DateType, disabledInfo: { type: PanelMode; from?: DateType }) => {
+        // Start
+        const startMonth = generateConfig.setMonth(currentDate, 0);
+        const startDate = generateConfig.setDate(startMonth, 1);
+
+        // End
+        const endMonth = generateConfig.addYear(startDate, 1);
+        const endDate = generateConfig.addDate(endMonth, -1);
+        return disabledDate(startDate, disabledInfo) && disabledDate(endDate, disabledInfo);
+      }
+    : null;
+
+  const options: { label: string; value: number; disabled: boolean }[] = [];
   for (let index = start; index < end; index++) {
-    options.push({ label: `${index}${suffix}`, value: index });
+    const disabled = disabledDate
+      ? mergedDisabledDate!(generateConfig.setYear(value, index), { type: 'year' })
+      : false;
+    options.push({ label: `${index}${suffix}`, value: index, disabled });
   }
 
   return (
@@ -77,8 +105,17 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 }
 
 function MonthSelect<DateType>(props: SharedProps<DateType>) {
-  const { prefixCls, fullscreen, validRange, value, generateConfig, locale, onChange, divRef } =
-    props;
+  const {
+    prefixCls,
+    fullscreen,
+    validRange,
+    value,
+    generateConfig,
+    locale,
+    onChange,
+    divRef,
+    disabledDate,
+  } = props;
   const month = generateConfig.getMonth(value || generateConfig.getNow());
 
   let start = 0;
@@ -96,11 +133,29 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
   }
 
   const months = locale.shortMonths || generateConfig.locale.getShortMonths!(locale.locale);
-  const options: { label: string; value: number }[] = [];
+
+  // ======================== Disabled ========================
+  const mergedDisabledDate = disabledDate
+    ? (currentDate: DateType, disabledInfo: any) => {
+        const startDate = generateConfig.setDate(currentDate, 1);
+        const nextMonthStartDate = generateConfig.setMonth(
+          startDate,
+          generateConfig.getMonth(startDate) + 1,
+        );
+        const endDate = generateConfig.addDate(nextMonthStartDate, -1);
+        return disabledDate(startDate, disabledInfo) && disabledDate(endDate, disabledInfo);
+      }
+    : null;
+
+  const options: { label: string; value: number; disabled: boolean }[] = [];
   for (let index = start; index <= end; index += 1) {
+    const disabled = disabledDate
+      ? mergedDisabledDate!(generateConfig.setMonth(value, index), { type: 'month' })
+      : false;
     options.push({
       label: months[index],
       value: index,
+      disabled,
     });
   }
 
@@ -150,6 +205,7 @@ export interface CalendarHeaderProps<DateType> {
   fullscreen: boolean;
   onChange: (date: DateType, source: SelectInfo['source']) => void;
   onModeChange: (mode: CalendarMode) => void;
+  disabledDate?: DisabledDate<DateType>;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
