@@ -1,11 +1,12 @@
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import classNames from 'classnames';
 import RcImage from '@rc-component/image';
-import type { ImageProps } from '@rc-component/image';
+import type { ImagePreviewType, ImageProps } from '@rc-component/image';
+import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
@@ -33,6 +34,20 @@ const Image: CompositionImage<ImageProps> = (props) => {
     preview: contextPreview,
   } = useComponentConfig('image');
 
+  // ============================= Warning ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('image');
+
+    [
+      ['rootClassName', 'classNames: { root: "" }'],
+      ['maskClassName', 'classNames: { mask: "" }'],
+    ].forEach(([deprecatedName, newName]) => {
+      if (typeof preview === 'object') {
+        warning.deprecated(!(deprecatedName in preview), deprecatedName, newName);
+      }
+    });
+  }
+
   const [imageLocale] = useLocale('Image');
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
@@ -56,6 +71,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
+    const _contextPreview = typeof contextPreview === 'object' ? contextPreview : {};
     const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
     return {
       mask: (
@@ -66,14 +82,30 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
       closeIcon: closeIcon ?? contextPreview?.closeIcon,
+      rootClassName: classNames(
+        mergedRootClassName,
+        rootClassName,
+        _preview?.classNames?.root,
+        _contextPreview?.classNames?.root,
+      ),
+      classNames: {
+        mask: classNames(_preview?.classNames?.mask, _contextPreview?.classNames?.mask),
+        actions: classNames(_preview?.classNames?.actions, _contextPreview?.classNames?.actions),
+      },
+      styles: {
+        root: { ..._contextPreview?.styles?.root, ..._preview?.styles?.root },
+        mask: { ..._contextPreview?.styles?.mask, ..._preview?.styles?.mask },
+        actions: { ..._contextPreview?.styles?.actions, ..._preview?.styles?.actions },
+        // @ts-ignore emporarily used in PurePanel, not used externally by antd
+        wrapper: { ..._contextPreview?.styles?.wrapper, ..._preview?.styles?.wrapper },
+      },
     };
-  }, [preview, imageLocale, contextPreview?.closeIcon]);
+  }, [preview, imageLocale, contextPreview]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
@@ -89,7 +121,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 };
 
-export type { ImageProps };
+export type { ImageProps, ImagePreviewType };
 
 Image.PreviewGroup = PreviewGroup;
 

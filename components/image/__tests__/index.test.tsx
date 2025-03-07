@@ -191,4 +191,36 @@ describe('Image', () => {
       ).style.zIndex,
     ).toBe('1302');
   });
+  it('support classnames and styles', () => {
+    const customClassnames = {
+      mask: 'custom-mask',
+      actions: 'custom-actions',
+      root: 'custom-root',
+    };
+    const customStyles = {
+      mask: { color: 'red' },
+      actions: { backgroundColor: 'blue' },
+      root: { border: '1px solid green' },
+    };
+    const { baseElement } = render(
+      <Image
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        preview={{
+          styles: customStyles,
+          classNames: customClassnames,
+          mask: 'Bamboo Is Light',
+          zIndex: 9999,
+          visible: true,
+        }}
+      />,
+    );
+    const mask = document.querySelector('.ant-image-mask');
+    const actions = baseElement.querySelector('.ant-image-preview-operations');
+    expect(mask).toHaveClass(customClassnames.mask);
+    expect(mask).toHaveStyle(customStyles.mask);
+    expect(actions).toHaveClass(customClassnames.actions);
+    expect(actions).toHaveStyle(customStyles.actions);
+    expect(baseElement.querySelector('.ant-image-preview-root')).toHaveClass(customClassnames.root);
+    expect(baseElement.querySelector('.ant-image-preview')).toHaveStyle(customStyles.root);
+  });
 });

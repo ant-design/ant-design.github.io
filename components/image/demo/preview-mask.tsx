@@ -7,7 +7,9 @@ const App: React.FC = () => (
     width={96}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
     preview={{
-      maskClassName: 'customize-mask',
+      classNames: {
+        mask: 'customize-mask',
+      },
       mask: (
         <Space direction="vertical" align="center">
           <ZoomInOutlined />
