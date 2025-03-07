@@ -136,11 +136,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
-      popupStyle={{
-        ...props.popupStyle,
-        zIndex,
-      }}
+      classNames={{ popup: popupClassName || dropdownClassName }}
+      styles={{ popup: { ...props.dropdownStyle, zIndex } }}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{

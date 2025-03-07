@@ -1,11 +1,11 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
 import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
+import omit from '@rc-component/util/lib/omit';
+import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -67,6 +67,8 @@ export interface InternalSelectProps<
   variant?: Variant;
 }
 
+type SemanticName = 'root' | 'prefix' | 'suffix' | 'popup';
+
 export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -78,14 +80,22 @@ export interface SelectProps<
     | 'backfill'
     | 'placement'
     | 'dropdownClassName'
+    | 'dropdownStyle'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /** @deprecated Please use `classNames: {{ popup: ''}}` instead */
   popupClassName?: string;
+  /** @deprecated Please use `classNames: {{ popup: ''}}` instead */
+  dropdownClassName?: string;
+  /** @deprecated Please use `styles: {{ popup: {}}}` instead */
+  dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -118,11 +128,13 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
-    popupStyle,
+    dropdownStyle,
     transitionName,
     tagRender,
     maxCount,
     prefix,
+    classNames: selectClassNames,
+    styles,
     ...rest
   } = props;
 
@@ -136,7 +148,13 @@ const InternalSelect = <
     popupOverflow,
   } = React.useContext(ConfigContext);
 
-  const contextSelect = useComponentConfig('select');
+  const {
+    showSearch: contextShowSearch,
+    style: contextStyle,
+    styles: contextStyles,
+    className: contextClassName,
+    classNames: contextClassNames,
+  } = useComponentConfig('select');
 
   const [, token] = useToken();
 
@@ -208,6 +226,24 @@ const InternalSelect = <
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
+  const mergedStyles = React.useMemo(
+    () => ({
+      popup: { ...contextStyles.popup, ...styles?.popup },
+      prefix: { ...contextStyles.prefix, ...styles?.prefix },
+      suffix: { ...contextStyles.suffix, ...styles?.suffix },
+    }),
+    [styles, contextStyles],
+  );
+
+  const mergedClassNames = React.useMemo(
+    () => ({
+      popup: classNames(contextClassNames.popup, selectClassNames?.popup),
+      prefix: classNames(contextClassNames.prefix, selectClassNames?.prefix),
+      suffix: classNames(contextClassNames.suffix, selectClassNames?.suffix),
+    }),
+    [selectClassNames, contextClassNames],
+  );
+
   const mergedPopupClassName = classNames(
     popupClassName,
     {
@@ -217,6 +253,7 @@ const InternalSelect = <
     cssVarCls,
     rootCls,
     hashId,
+    mergedClassNames?.popup,
   );
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -235,9 +272,11 @@ const InternalSelect = <
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
-    contextSelect.className,
+    contextClassName,
     className,
     rootClassName,
+    selectClassNames?.root,
+    contextClassNames.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -255,11 +294,13 @@ const InternalSelect = <
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
 
-    warning.deprecated(
-      dropdownMatchSelectWidth === undefined,
-      'dropdownMatchSelectWidth',
-      'popupMatchSelectWidth',
-    );
+    [
+      ['dropdownMatchSelectWidth', 'popupMatchSelectWidth'],
+      ['popupClassName', 'classNames: {{ popup: ""}}'],
+      ['dropdownStyle', '{{ popup: {}}}'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
 
     warning(
       !('showArrow' in props),
@@ -277,16 +318,27 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', popupStyle?.zIndex as number);
+  const [zIndex] = useZIndex(
+    'SelectLike',
+    (mergedStyles?.popup?.zIndex as number) ?? (dropdownStyle?.zIndex as number),
+  );
 
   // ====================== Render =======================
   return (
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
-      showSearch={contextSelect.showSearch}
+      classNames={{
+        prefix: mergedClassNames?.prefix,
+        suffix: mergedClassNames?.suffix,
+      }}
+      styles={{
+        prefix: mergedStyles?.prefix,
+        suffix: mergedStyles?.suffix,
+      }}
+      showSearch={contextShowSearch}
       {...selectProps}
-      style={{ ...contextSelect.style, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
@@ -306,7 +358,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...popupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles?.popup, ...dropdownStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />

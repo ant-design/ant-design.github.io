@@ -86,10 +86,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
+| ~~popupClassName~~ | The className of dropdown menu, Please use `classNames: {{ popup: ''}}` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
-| dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
+| ~~dropdownStyle~~ | The style of dropdown menu, Please use `styles: {{ popup: {}}}` | CSSProperties | - |  |
 | fieldNames | Customize node label, value, options，groupLabel field name | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0 (`groupLabel` added in 5.6.0) |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
@@ -161,6 +161,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | label     | Group label                        | React.ReactNode | -       |         |
 | className | The additional class to option     | string          | -       |         |
 | title     | `title` attribute of Select Option | string          | -       |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

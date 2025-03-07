@@ -87,10 +87,10 @@ return (
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
+| ~~popupClassName~~ | 下拉菜单的 className 属性, 请使用 `classNames: {{ popup: ''}}` 替换 | string | - | 4.23.0 |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
-| dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，请使用 `styles: {{ popup: {}}}` 替换 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options、groupLabel 的字段 | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0（`groupLabel` 在 5.6.0 新增） |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。[示例](#select-demo-search) | boolean \| function(inputValue, option) | true |  |
 | filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
@@ -162,6 +162,10 @@ return (
 | label     | 组名                    | React.ReactNode | -      |      |
 | className | Option 器类名           | string          | -      |      |
 | title     | 选项上的原生 title 提示 | string          | -      |      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

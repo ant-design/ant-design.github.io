@@ -227,7 +227,8 @@ export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 export type PaginationConfig = ComponentStyleConfig &
   Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
 
-export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
+export type SelectConfig = ComponentStyleConfig &
+  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
