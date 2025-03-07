@@ -8,7 +8,6 @@ import { genSubStyleComponent } from '../../theme/internal';
 
 // ============================== Status ==============================
 type CssVariableType = 'Success' | 'Info' | 'Error' | 'Warning';
-
 const genTagStatusStyle = (
   token: TagToken,
   status: 'success' | 'processing' | 'error' | 'warning',

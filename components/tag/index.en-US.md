@@ -19,6 +19,8 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/variant.tsx" debug>Transparent variant</code>
+<code src="./demo/compact.tsx" debug>Combined Tag</code>
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/colorful-inverse.tsx" debug>Inverse Colorful Tag</code>
 <code src="./demo/control.tsx">Add & Remove Dynamically</code>
@@ -42,9 +44,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
 | color | Color of the Tag | string | - |  |
+| variant | Variant | `clear` \| `default` | `default` |  |
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+
+### Tag.Compact
+
+| Property  | Description   | Type         | Default    |
+| --------- | ------------- | ------------ | ---------- | --------- | ------------ |
+| direction | Layout method | "horizontal" | "vertical" | undefined | “horizontal” |
 
 ### Tag.CheckableTag
 
