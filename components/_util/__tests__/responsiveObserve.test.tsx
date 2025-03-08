@@ -5,23 +5,20 @@ import useResponsiveObserver from '../responsiveObserver';
 
 describe('Test ResponsiveObserve', () => {
   it('test ResponsiveObserve subscribe and unsubscribe', () => {
-    let responsiveObserveRef: any;
-    const Demo = () => {
+    let responsiveRef: any = null;
+    const Demo: React.FC = () => {
       const responsiveObserver = useResponsiveObserver();
-      responsiveObserveRef = responsiveObserver;
+      responsiveRef = responsiveObserver;
       return null;
     };
     render(<Demo />);
     const subscribeFunc = jest.fn();
-    const token = responsiveObserveRef.subscribe(subscribeFunc);
-    expect(
-      responsiveObserveRef.matchHandlers[responsiveObserveRef.responsiveMap.xs].mql.matches,
-    ).toBeTruthy();
+    const token = responsiveRef.subscribe(subscribeFunc);
+    expect(responsiveRef.matchHandlers[responsiveRef.responsiveMap.xs].mql.matches).toBeTruthy();
     expect(subscribeFunc).toHaveBeenCalledTimes(1);
-
-    responsiveObserveRef.unsubscribe(token);
+    responsiveRef.unsubscribe(token);
     expect(
-      responsiveObserveRef.matchHandlers[responsiveObserveRef.responsiveMap.xs].mql.removeListener,
+      responsiveRef.matchHandlers[responsiveRef.responsiveMap.xs].mql?.removeEventListener,
     ).toHaveBeenCalled();
   });
 });

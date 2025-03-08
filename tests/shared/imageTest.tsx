@@ -8,8 +8,8 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import rcWarning from 'rc-util/lib/warning';
 import type { HTTPRequest } from 'puppeteer';
+import rcWarning from 'rc-util/lib/warning';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
@@ -94,13 +94,12 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
     })) as unknown as typeof matchMedia;
 
     // Fill window
     fillWindowEnv(win);
-
     await page.setRequestInterception(true);
   });
 
