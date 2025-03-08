@@ -30,6 +30,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
+      aria-description="sortable column"
       aria-label="Name"
       class="ant-table-cell ant-table-column-has-sorters"
       scope="col"
@@ -125,6 +126,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               >
                 <tr>
                   <th
+                    aria-description="sortable column"
                     aria-label="Age"
                     aria-sort="ascending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"

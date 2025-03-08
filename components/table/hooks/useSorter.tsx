@@ -167,7 +167,8 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
         );
       }
 
-      const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
+      const { cancelSort, triggerAsc, triggerDesc, sortableColumnHeaderAriaDescription } =
+        tableLocale || {};
       let sortTip: string | undefined = cancelSort;
       if (nextSortOrder === DESCEND) {
         sortTip = triggerDesc;
@@ -247,6 +248,8 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           if (sortOrder) {
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
+          // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
+          cell['aria-description'] = sortableColumnHeaderAriaDescription;
           cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;

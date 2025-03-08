@@ -60,6 +60,7 @@ export interface TableLocale {
   triggerDesc?: string;
   triggerAsc?: string;
   cancelSort?: string;
+  sortableColumnHeaderAriaDescription?: string;
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
