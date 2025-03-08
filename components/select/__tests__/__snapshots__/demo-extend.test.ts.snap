@@ -1741,7 +1741,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         >
           <span>
             <span
-              class="ant-tag ant-tag-gold css-var-test-id"
+              class="ant-tag ant-tag-outlined ant-tag-gold css-var-test-id"
               style="margin-inline-end: 4px;"
             >
               gold
@@ -1775,7 +1775,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         >
           <span>
             <span
-              class="ant-tag ant-tag-cyan css-var-test-id"
+              class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
               style="margin-inline-end: 4px;"
             >
               cyan

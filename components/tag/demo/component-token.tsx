@@ -20,7 +20,7 @@ const App: React.FC = () => (
           Link
         </a>
       </Tag>
-      <Tag bordered={false}>
+      <Tag variant="borderless">
         <a
           href="https://github.com/ant-design/ant-design/issues/1862"
           target="_blank"
@@ -35,8 +35,10 @@ const App: React.FC = () => (
       <Tag icon={<CloseCircleOutlined />} color="error">
         error
       </Tag>
-      <Tag color="red-inverse">red</Tag>
-      <Tag bordered={false} color="magenta">
+      <Tag color="red" variant="filled">
+        red
+      </Tag>
+      <Tag variant="borderless" color="magenta">
         magenta
       </Tag>
       <Tag icon={<SyncOutlined spin />} color="processing">

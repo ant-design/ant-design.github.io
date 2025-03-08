@@ -2729,7 +2729,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 cat
                               </span>
@@ -2772,7 +2772,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 dog
                               </span>
@@ -2815,7 +2815,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 bird
                               </span>
@@ -2858,7 +2858,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 cat
                               </span>
@@ -2902,7 +2902,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 dog
                               </span>
@@ -2945,7 +2945,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 bird
                               </span>
@@ -2988,7 +2988,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 cat
                               </span>
@@ -3031,7 +3031,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 dog
                               </span>
@@ -3075,7 +3075,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 bird
                               </span>
@@ -3118,7 +3118,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag css-var-test-id"
+                                class="ant-tag ant-tag-outlined css-var-test-id"
                               >
                                 cat
                               </span>
@@ -6961,7 +6961,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 CAT
@@ -7005,7 +7005,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 DOG
@@ -7049,7 +7049,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 BIRD
@@ -7093,7 +7093,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 CAT
@@ -7137,7 +7137,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 DOG
@@ -7181,7 +7181,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 BIRD
@@ -7225,7 +7225,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 CAT
@@ -7269,7 +7269,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 DOG
@@ -7313,7 +7313,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 BIRD
@@ -7357,7 +7357,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan css-var-test-id"
+                                class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
                                 style="margin-inline-end:0"
                               >
                                 CAT

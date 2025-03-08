@@ -90,12 +90,12 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-green css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                       >
                         NICE
                       </span>
                       <span
-                        class="ant-tag ant-tag-geekblue css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                       >
                         DEVELOPER
                       </span>
@@ -152,7 +152,7 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-volcano css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-volcano css-var-test-id"
                       >
                         LOSER
                       </span>
@@ -209,12 +209,12 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-green css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                       >
                         COOL
                       </span>
                       <span
-                        class="ant-tag ant-tag-geekblue css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                       >
                         TEACHER
                       </span>
@@ -16165,12 +16165,12 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-green css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                       >
                         NICE
                       </span>
                       <span
-                        class="ant-tag ant-tag-geekblue css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                       >
                         DEVELOPER
                       </span>
@@ -16230,7 +16230,7 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-volcano css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-volcano css-var-test-id"
                       >
                         LOSER
                       </span>
@@ -16290,12 +16290,12 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                     >
                       <span
-                        class="ant-tag ant-tag-green css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                       >
                         COOL
                       </span>
                       <span
-                        class="ant-tag ant-tag-geekblue css-var-test-id"
+                        class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                       >
                         TEACHER
                       </span>
@@ -21417,12 +21417,12 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                       >
                         <span
-                          class="ant-tag ant-tag-green css-var-test-id"
+                          class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                         >
                           NICE
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue css-var-test-id"
+                          class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                         >
                           DEVELOPER
                         </span>
@@ -21479,7 +21479,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                       >
                         <span
-                          class="ant-tag ant-tag-volcano css-var-test-id"
+                          class="ant-tag ant-tag-outlined ant-tag-volcano css-var-test-id"
                         >
                           LOSER
                         </span>
@@ -21536,12 +21536,12 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
                       >
                         <span
-                          class="ant-tag ant-tag-green css-var-test-id"
+                          class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
                         >
                           COOL
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue css-var-test-id"
+                          class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
                         >
                           TEACHER
                         </span>

@@ -10,8 +10,7 @@ const genPresetStyle = (token: TagToken) =>
       color: textColor,
       background: lightColor,
       borderColor: lightBorderColor,
-      // Inverse color
-      '&-inverse': {
+      [`&${token.componentCls}-filled`]: {
         color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,

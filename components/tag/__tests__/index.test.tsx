@@ -282,4 +282,14 @@ describe('Tag', () => {
     expect(container).not.toBeNull();
     expect(iconElement).toBeNull();
   });
+
+  it('should have variant className', () => {
+    const { container } = render(
+      <Tag color="#66ccff" variant="filled">
+        tag
+      </Tag>,
+    );
+    const tagElement = container.querySelector('.ant-tag-filled');
+    expect(tagElement).not.toBeNull();
+  });
 });

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
@@ -8,6 +9,7 @@ import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -25,12 +27,14 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
+  variant?: 'outlined' | 'filled' | 'borderless';
   /** Advised to use closeIcon instead. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
+  /** @deprecated Please use `variant="borderless"` instead */
   bordered?: boolean;
   href?: string;
   target?: string;
@@ -49,6 +53,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       children,
       icon,
       color,
+      variant,
       onClose,
       bordered = true,
       disabled: customDisabled,
@@ -59,17 +64,36 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       ...props
     } = tagProps;
 
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled ?? disabled;
     const {
       getPrefixCls,
       direction,
       className: contextClassName,
+      variant: contextVariant,
       style: contextStyle,
       classNames: contextClassNames,
       styles: contextStyles,
     } = useComponentConfig('tag');
+
+    const isInverseColor = color?.endsWith('-inverse');
+
+    const mergedVariant =
+      variant ||
+      contextVariant ||
+      (bordered === false && 'borderless') ||
+      (isInverseColor ? 'filled' : 'outlined');
+
+    const mergedColor = isInverseColor ? color?.replace('-inverse', '') : color;
+
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('Tag');
+      warning.deprecated(bordered !== false, 'bordered={false}', 'variant="borderless"');
+      warning.deprecated(!isInverseColor, 'color="xxx-inverse"', 'variant="filled"');
+    }
+
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
+
     const { tag: tagContext } = React.useContext(ConfigContext);
     const [visible, setVisible] = React.useState(true);
 
@@ -87,6 +111,20 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       ...style,
     };
 
+    if (color && !isInternalColor && !mergedDisabled) {
+      if (mergedVariant === 'filled') {
+        tagStyle.background = color;
+      } else {
+        const hsl = new FastColor(color).toHsl();
+        hsl.l = 0.95;
+        tagStyle.background = new FastColor(hsl).toHexString();
+        tagStyle.color = color;
+        if (mergedVariant === 'outlined') {
+          tagStyle.borderColor = color;
+        }
+      }
+    }
+
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);
     // Style
@@ -95,12 +133,12 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       contextClassName,
       contextClassNames.root,
       tagClassNames?.root,
+      `${prefixCls}-${mergedVariant}`,
       {
-        [`${prefixCls}-${color}`]: isInternalColor,
+        [`${prefixCls}-${mergedColor}`]: isInternalColor,
         [`${prefixCls}-has-color`]: color && !isInternalColor,
         [`${prefixCls}-hidden`]: !visible,
         [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-borderless`]: !bordered,
         [`${prefixCls}-disabled`]: mergedDisabled,
       },
       className,

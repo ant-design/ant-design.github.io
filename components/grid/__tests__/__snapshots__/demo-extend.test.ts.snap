@@ -1509,7 +1509,7 @@ exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly
 Array [
   Current break point: ,
   <span
-    class="ant-tag ant-tag-blue css-var-test-id"
+    class="ant-tag ant-tag-outlined ant-tag-blue css-var-test-id"
   >
     xs
   </span>,
