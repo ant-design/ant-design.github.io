@@ -274,6 +274,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
   const {
     componentCls,
     headerBg,
+    padding,
     paddingXXS,
 
     colorBorder,
@@ -303,9 +304,8 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
         backgroundColor: 'transparent',
         borderTop: 0,
       },
-
-      [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
-        paddingTop: paddingXXS,
+      [`${componentCls}-content-box`]: {
+        padding: `${paddingXXS} ${padding} ${padding}`,
       },
     },
   };
